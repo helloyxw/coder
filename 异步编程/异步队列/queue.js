@@ -1,3 +1,4 @@
+//  参考：https://juejin.cn/post/6844903501219233800#heading-1
 const queue = () => {
     const list = [];
     let index = 0;

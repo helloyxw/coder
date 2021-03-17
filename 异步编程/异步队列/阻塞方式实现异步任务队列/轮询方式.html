@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clickMe()">点我</button>
+    <script>
+        let queue = [];
+        let index = 0;
+        function clickMe() {
+            queue.push({name: "click", index: index++})
+        }
+        run();
+        async function run() {
+            while(true) {
+                if (queue.length > 0) {
+                    let obj = queue.shift();
+                    let res = await request(obj.index)
+                    console.log("已处理事件" + res);
+                } else {
+                    await wait(500);
+                    console.log("---- 队列空闲中 ----");
+                }
+            }
+        }
+
+        // 通过setTimeout模拟异步请求 
+        function request(index) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    resolve(index)
+                }, 1000)
+            })
+        }
+        function wait(time) {
+            return new Promise(function(resolve) {
+                setTimeout(() => {
+                    resolve()
+                }, time)
+            })
+        }
+    </script>
+</body>
+</html>
