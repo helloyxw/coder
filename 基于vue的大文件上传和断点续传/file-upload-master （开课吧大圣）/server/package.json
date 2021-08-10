@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "egg": "^2.26.0",
-    "egg-bin": "^4.14.1",
+    "egg": "^2.29.3",
+    "egg-bin": "^4.15.0",
     "egg-cors": "^2.2.3",
     "fs-extra": "^8.1.0"
   }
